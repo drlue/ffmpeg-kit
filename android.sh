@@ -212,6 +212,12 @@ download_gnu_config
 # DOWNLOAD LIBRARY SOURCES
 downloaded_library_sources "${ENABLED_LIBRARIES[@]}"
 
+cp 0001-Rockchip-Android-12-v4l2-patch.-Credits-https-github.patch src/ffmpeg/
+cd src/ffmpeg/
+git apply 0001-Rockchip-Android-12-v4l2-patch.-Credits-https-github.patch
+./configure --enable-indev=alsa --enable-outdev=alsa
+cd ../../
+
 # SAVE ORIGINAL API LEVEL = NECESSARY TO BUILD 64bit ARCHITECTURES
 export ORIGINAL_API=${API}
 
